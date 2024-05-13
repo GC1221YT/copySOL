@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQLCODES</title>
+</head>
+<body>
+    <!-- Point 1: SQL Queries -->
+    <p>
+        <!-- Point 2: SQL Commands -->
+        CREATE DATABASE adi;<br>
+        USE adi;<br>
+        CREATE TABLE Ps (<br>
+        &emsp;Sr_No int,<br>
+        &emsp;Students varchar(255),<br>
+        &emsp;City varchar(255),<br>
+        &emsp;Age int,<br>
+        &emsp;Salary int<br>
+        );<br>
+        INSERT INTO Ps Values ('1' , 'HARI' , 'YEVATMAL' , '23' , '22576');<br>
+        INSERT INTO Ps Values ('2' , 'TEJAS' , 'PARBHANI' , '24' , '33928');<br>
+        INSERT INTO Ps Values ('3' , 'SWARUPA' , 'PANVEL' , ' ' , '33150');<br>
+        INSERT INTO Ps Values ('4' , 'SNEHAL' , 'PUNE' , '27' , '16506');<br>
+        INSERT INTO Ps Values ('5' , 'KRISH' , 'GOREGAON' , '21' , '20411');<br>
+        INSERT INTO Ps Values ('6' , 'YASH' , 'GURGAON' , '23' , '19827');<br>
+        INSERT INTO Ps Values ('7' , 'UDAY' , 'DELHI' , '29' , '225725');<br>
+        INSERT INTO Ps Values ('8' , 'HRISHIKESH' , 'BANGLORE' , '20' , '33125');<br>
+        INSERT INTO Ps Values ('9' , NULL , 'MAUMBAI' , '21' , '27215'),<br>
+        INSERT INTO Ps Values ('10' , 'SWARAJ' , NULL , '25' , '28387');<br>
+        SELECT * FROM Ps;<br>
+        drop table Persons;<br><br>
+        
+        SELECT City, MIN(Salary) AS Min_Salary<br>
+        FROM Ps<br>
+        GROUP BY City<br>
+        ORDER BY Min_Salary ASC;<br><br>
+        
+        SELECT<br>
+        &emsp;Students,<br>
+        &emsp;AVG(Salary) AS Avg_Salary,<br>
+        &emsp;MIN(Salary) AS Min_Salary,<br>
+        &emsp;MAX(Salary) AS Max_Salary<br>
+        FROM <br>
+        &emsp;Ps<br>
+        GROUP BY <br>
+        &emsp;Students having avg(salary)> 18000<br>
+        ORDER BY <br>
+        &emsp;students Asc;<br><br>
+        
+        TRUNCATE TABLE Ps;<br>
+        -- ALTER TABLE Persons<br>
+        -- ADD TotalMarks int; <br><br>
+        
+        DELETE FROM Persons where Sr_No='10';<br>
+        -- SELECT * FROM Persons;<br>
+        UPDATE Ps SET Students = 'ADITYA' where Sr_No= 9;<br>
+        DROP DATABASE adi;<br>
+        -- SELECT COUNT(*) FROM PERSONS;<br>
+        SELECT AVG(SALARY) FROM Ps;<br>
+        SELECT MAX(SALARY) FROM PERSONS;<br><br>
+        
+        -- SELECT MIN(SALARY) FROM PERSONS;<br>
+        SELECT DISTINCT AGE FROM Ps;<br>
+        SELECT STUDENTS, SALARY FROM Ps WHERE AGE>25;<br><br>
+        
+        -- 2 table <br><br>
+        
+        TRUNCATE TABLE T2;<br>
+        SELECT * FROM T2;<br>
+        drop table T2;<br>
+        CREATE TABLE T2 (<br>
+        &emsp;Sr_No int,<br>
+        &emsp;Students varchar(255),<br>
+        &emsp;post varchar(255),<br>
+        &emsp;DATE int,<br>
+        &emsp;sales int<br>
+        );<br>
+        INSERT INTO T2 Values ('1' , 'HARI' , 'hr' , '23' , '22576');<br>
+        INSERT INTO T2 Values ('2' , 'TEJAS' , 'jr hr' , '24' , '33928');<br>
+        INSERT INTO T2 Values ('3' , 'SWARUPA' , 'Ceo' , ' 20' , '33150');<br>
+        INSERT INTO T2 Values ('4' , 'SNEHAL' , 'idea' , '27' , '16506');<br>
+        INSERT INTO T2 Values ('5' , 'KRISH' , 'emp' , '21' , '20411');<br>
+        INSERT INTO T2 Values ('6' , 'YASH' , 'head' , '23' , '19827');<br>
+        INSERT INTO T2 Values ('7' , 'UDAY' , 'head emp' , '29' , '225725');<br>
+        INSERT INTO T2 Values ('8' , 'HRISHIKESH' , 'ceo' , '20' , '33125');<br><br>
+        
+        -- inner joins<br><br>
+        
+        SELECT Ps.Sr_no, T2.students, T2.post<br>
+        FROM Ps<br>
+        INNER JOIN T2 <br>
+        ON Ps.Sr_No = T2.Sr_No;<br><br>
+        
+        ---- left join<br><br>
+        
+        SELECT Ps.Sr_No, Ps.Students , T2.post, T2.sales<br>
+        FROM Ps<br>
+        left JOIN T2<br>
+        ON Ps.Sr_No = T2.Sr_No;<br><br>
+        
+        SELECT <br>
+        &emsp;City,<br>
+        &emsp;AVG(Salary) AS Avg_Salary,<br>
+        &emsp;MIN(Salary) AS Min_Salary,<br>
+        &emsp;MAX(Salary) AS Max_Salary<br>
+        FROM <br>
+        &emsp;Ps<br>
+        GROUP BY <br>
+        &emsp;City<br>
+        ORDER BY <br>
+        &emsp;Avg_Salary ASC;<br><br>
+        
+        -- SELECT column_name(s)<br>
+        -- FROM table_name<br>
+        -- WHERE condition<br>
+        -- GROUP BY column_name(s)<br>
+        -- ORDER BY column_name(s);<br><br>
+        
+        -- Create a database named "University" if it doesn't exist<br>
+        CREATE DATABASE IF NOT EXISTS TCL;<br><br>
+        
+        -- Use the "University" database<br>
+        USE TCL;<br><br>
+        
+        -- Create a table named "Students" if it doesn't exist<br>
+        CREATE TABLE IF NOT EXISTS Students (<br>
+        &emsp;StudentID INT PRIMARY KEY,<br>
+        &emsp;FirstName VARCHAR(50),<br>
+        &emsp;LastName VARCHAR(50),<br>
+
+        <p>-- inner joins<br>
+
+            SELECT Ps.Sr_no, T2.students, T2.post
+            FROM Ps
+            INNER JOIN T2 
+            ON Ps.Sr_No = T2.Sr_No;
+            
+            ---- left join<br>
+            
+            SELECT Ps.Sr_No, Ps.Students , T2.post, T2.sales<br>
+            FROM Ps<br>
+            left JOIN T2<br>
+            ON Ps.Sr_No = T2.Sr_No;<br>
+            
+             SELECT <br>
+                City,
+                AVG(Salary) AS Avg_Salary,
+                MIN(Salary) AS Min_Salary,
+                MAX(Salary) AS Max_Salary
+            FROM 
+                Ps
+            GROUP BY 
+                City
+            ORDER BY 
+                Avg_Salary ASC;
+                
+                <br>
+            -- SELECT column_name(s)
+            -- FROM table_name
+            -- WHERE condition
+            -- GROUP BY column_name(s)
+            -- ORDER BY column_name(s);
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            <br>   
+                -- Create a database named "University" if it doesn't exist
+            CREATE DATABASE IF NOT EXISTS TCL;
+            <br>   
+            
+            -- Use the "University" database
+            USE TCL;
+            <br>   
+            
+            -- Create a table named "Students" if it doesn't exist
+            CREATE TABLE IF NOT EXISTS Students (
+                StudentID INT PRIMARY KEY,
+                FirstName VARCHAR(50),
+                LastName VARCHAR(50),
+                Age INT,
+                GPA DECIMAL(3, 2)
+            );
+            <br>   
+            
+            -- Insert at least five records into the "Students" table
+            INSERT INTO Students (StudentID, FirstName, LastName, Age, GPA)
+            VALUES
+            <br>   
+            (1, 'Hari', 'Potter', 22, 3.8),
+            <br>   
+            (2, 'Shubh', 'Smith', 21, 3.9),
+            <br>   
+            (3, 'Shivam', 'Johnson', 23, 3.6),
+            <br>   
+            (4, 'Gautam', 'Brown', 20, 4.0),
+            <br>   
+            (5, 'Suyash', 'Jones', 22, 3.7);
+            <br>   
+            
+             SAVEPOINT tablemade;<br>
+            
+            UPDATE Students SET GPA = 4.9 WHERE StudentID = 3;<br>
+            
+            SAVEPOINT updationmade;<br>
+            
+            DELETE FROM Students WHERE StudentID = 2;<br>
+            
+            SAVEPOINT rowdeleted;<br>
+            
+            
+            
+            SELECT * FROM Students;
+            
+            Rollback;<br>
+            
+     
+            SELECT * FROM Students;<br>
+            
+            ROLLBACK TO  tablemade;
+            ROLLBACK TO  updationmade;
+            ROLLBACK TO SAVEPOINT rowdeleted;
+            
+            -- DROP TABLE Students;
+            
+            SELECT * FROM Students;</p>
